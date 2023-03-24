@@ -1,0 +1,11 @@
+Model Information:
+* title:	Meteor Gun
+* source:	https://sketchfab.com/3d-models/meteor-gun-bcce34938a294824aec1e20a18abe9bb
+* author:	Ratchet_and_clank_ripped (https://sketchfab.com/titiman4444)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Meteor Gun" (https://sketchfab.com/3d-models/meteor-gun-bcce34938a294824aec1e20a18abe9bb) by Ratchet_and_clank_ripped (https://sketchfab.com/titiman4444) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

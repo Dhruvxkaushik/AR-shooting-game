@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Y</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="./bullet.js"></script>
+    <script src="./meteors.js"></script>
+  </head>
+  <body>
+    <a-scene id="scene">
+      <a-sky src="./space1.webp"></a-sky>
+      <a-assets>
+        <a-asset-item id="gun" src="./gun/scene.gltf"></a-asset-item>
+
+        <a-asset-item id="meteor" src="./meteor/scene.gltf"> </a-asset-item>
+      </a-assets>
+      <a-entity id="camera-rig" position="0 1 2">
+      <a-entity
+        id="camera"
+        camera
+        postion=" 0 1.6 0"
+        ;
+        look-controls="pointerLockEnabled: false"
+      >
+        <a-entity
+          id="weapon"
+          gltf-model="#gun"
+          position="0 -4.3 3"
+          rotation="0 180 0"
+          scale="0.3 0.2 0.2"
+          body="type:static;mass:5;shape:none"
+          shape="shape:sphere;radius:10;offset:0 0 0"
+        >
+        </a-entity>
+        <a-cursor></a-cursor>
+        <a-entity id="in1" position="0 3.25 -5.1" 
+        text="font:mozillavr;width:5;height:10;value:PRESS Z KEY TO SHOOT DOWN THE TARGET"
+        ></a-entity>
+        <a-entity id="score" position="-4 2.7 -5.1" 
+        text="font:mozillavr;width:5;height:10;value:SCORE:"
+        ></a-entity>
+        <a-entity id="scoreCount" position="-3.15 2.7 -5.1" 
+        text="font:mozillavr;width:5;height:10;value:0"
+        ></a-entity>
+        <a-entity id="gameOver" position="1 1 -3" 
+        text="font:mozillavr;width:5;height:10;value:Better Luck Next Time! LOL" visible="false"
+        ></a-entity>
+        <a-entity id="gameWone" position="1.7 1 -3" 
+        text="font:mozillavr;width:5;height:10;value:GG! You did it" visible="false"
+        ></a-entity>
+      </a-entity>
+      </a-entity>
+
+      <a-entity bullets></a-entity>
+      <a-entity create-meteors></a-entity>
+       <!-- <a-entity
+        id="meteor-1"
+        gltf-model="#meteor"
+        position="0 0 -50"
+        scale="0.015 0.015 0.015"
+        animation="property:position;to:0 0 10; dur:10000;easing:linear;loop:true"
+      ></a-entity>
+
+      <a-entity
+        id="meteor-2"
+        gltf-model="#meteor"
+        position="15 20 -50"
+        scale="0.015 0.015 0.015"
+        animation="property:position;to:0 0 10; dur:15000;easing:linear;loop:true"
+      ></a-entity>
+
+      <a-entity
+        id="meteor-3"
+        gltf-model="#meteor"
+        position="50 90 -110"
+        scale="0.015 0.015 0.015"
+        animation="property:position;to:0 0 10; dur:10000;easing:linear;loop:true"
+      ></a-entity>
+
+      <a-entity
+        id="meteor-4"
+        gltf-model="#meteor"
+        position="15 20 -50"
+        scale="0.015 0.015 0.015"
+        animation="property:position;to:0 0 10; dur:15000;easing:linear;loop:true"
+      ></a-entity>
+
+      <a-entity
+        id="meteor-5"
+        gltf-model="#meteor"
+        position="15 20 -50"
+        scale="0.015 0.015 0.015"
+        animation="property:position;to:0 0 10; dur:15000;easing:linear;loop:true"
+      ></a-entity>
+
+      <a-entity
+        id="meteor-6"
+        gltf-model="#meteor"
+        position="15 20 -50"
+        scale="0.015 0.015 0.015"
+        animation="property:position;to:0 0 10; dur:15000;easing:linear;loop:true"
+      ></a-entity>
+
+      <a-entity
+        id="meteor-7"
+        gltf-model="#meteor"
+        position="15 20 -50"
+        scale="0.015 0.015 0.015"
+        animation="property:position;to:0 0 10; dur:15000;easing:linear;loop:true"
+      ></a-entity>
+
+      <a-entity
+        id="meteor-8"
+        gltf-model="#meteor"
+        position="-25 40 -80"
+        scale="0.015 0.015 0.015"
+        animation="property:position;to:0 0 10; dur:12000;easing:linear;loop:true"
+      ></a-entity>
+
+      <a-entity
+        id="meteor-9"
+        gltf-model="#meteor"
+        position="-30 70 -100"
+        scale="0.015 0.015 0.015"
+        animation="property:position;to:0 0 10; dur:18000;easing:linear;loop:true"
+      ></a-entity>
+
+      <a-entity
+        id="meteor-10"
+        gltf-model="#meteor"
+        position="40 50 -90"
+        scale="0.015 0.015 0.015"
+        animation="property:position;to:0 0 10; dur:14000;easing:linear;loop:true"
+      ></a-entity>
+
+     <a-entity
+        id="meteor-11"
+        gltf-model="#meteor"
+        position="-20 60 -120"
+        scale="0.015 0.015 0.015"
+        animation="property:position;to:0 0 10; dur:16000;easing:linear;loop:true"
+      ></a-entity>
+
+      <a-entity
+        id="meteor-12"
+        gltf-model="#meteor"
+        position="-50 30 -70"
+        scale="0.015 0.015 0.015"
+        animation="property:  position;to:0 0 10; dur:13000;easing:linear;loop:true"
+      ></a-entity>
+      <a-entity
+        id="meteor-13"
+        gltf-model="#meteor"
+        position="-50 30 -70"
+        scale="0.015 0.015 0.015"
+        animation="property:  position;to:0 0 10; dur:13000;easing:linear;loop:true"
+      ></a-entity>
+      <a-entity
+        id="meteor-14"
+        gltf-model="#meteor"
+        position="-10 30 -70"
+        scale="0.015 0.015 0.015"
+        animation="property:  position;to:0 0 10; dur:13000;easing:linear;loop:true"
+      ></a-entity>
+      <a-entity
+        id="meteor-15"
+        gltf-model="#meteor"
+        position="-50 50 -80"
+        scale="0.015 0.015 0.015"
+        animation="property:  position;to:0 0 10; dur:13000;easing:linear;loop:true"
+      ></a-entity>
+      <a-entity
+        id="meteor-16"
+        gltf-model="#meteor"
+        position="-50 660 -70"
+        scale="0.015 0.015 0.015"
+        animation="property:  position;to:0 0 10; dur:13000;easing:linear;loop:true"
+      ></a-entity>
+      <a-entity
+        id="meteor-17"
+        gltf-model="#meteor"
+        position="-500 30 -70"
+        scale="0.015 0.015 0.015"
+        animation="property:  position;to:0 0 10; dur:13000;easing:linear;loop:true"
+      ></a-entity>
+      <a-entity
+        id="meteor-18"
+        gltf-model="#meteor"
+        position="-70 30 -70"
+        scale="0.015 0.015 0.015"
+        animation="property:  position;to:0 0 10; dur:13000;easing:linear;loop:true"
+      ></a-entity>
+      <a-entity
+        id="meteor-19"
+        gltf-model="#meteor"
+        position="-22 30 -60"
+        scale="0.015 0.015 0.015"
+        animation="property:  position;to:0 0 10; dur:19000;easing:linear;loop:true"
+      ></a-entity>
+      <a-entity
+        id="meteor-20"
+        gltf-model="#meteor"
+        position="50 30 70"
+        scale="0.015 0.015 0.015"
+        animation="property:  position;to:0 0 10; dur:13800;easing:linear;loop:true"
+      ></a-entity> -->
+    </a-scene>
+  </body>
+</html>
